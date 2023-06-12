@@ -1,0 +1,41 @@
+{
+  "user": [
+    {
+      "id": "nirmal",
+      "name": "Nirmal",
+      "password": "1234",
+      "email": "nirmal@gmail.com",
+      "gender": "male",
+      "role": "Manager",
+      "isActive": true
+    },
+    {
+      "id": "test",
+      "name": "Nirmal",
+      "password": "1234",
+      "email": "nirmal@vfaa.com",
+      "gender": "male",
+      "role": "admin",
+      "isActive": true
+    },
+    {
+      "id": "a",
+      "name": "Nirmal",
+      "password": "1234",
+      "email": "nirmal@gmail.com",
+      "gender": "male",
+      "role": "staff",
+      "isActive": true
+    }
+  ],
+  "role": [
+    {
+      "code": "Manager",
+      "name": "Manager"
+    },
+    {
+      "code": "User",
+      "name": "User"
+    }
+  ]
+}
