@@ -2,29 +2,43 @@
   "user": [
     {
       "id": "nirmal",
-      "name": "Nirmal",
       "password": "1234",
-      "email": "nirmal@gmail.com",
-      "gender": "male",
-      "role": "Manager",
-      "isActive": true
-    },
-    {
-      "id": "test",
-      "name": "Nirmal",
-      "password": "1234",
-      "email": "nirmal@vfaa.com",
+      "email": "kjd@hf",
       "gender": "male",
       "role": "admin",
       "isActive": true
     },
     {
-      "id": "a",
-      "name": "Nirmal",
-      "password": "1234",
-      "email": "nirmal@gmail.com",
+      "id": "test",
+      "email": "kjd@hf",
       "gender": "male",
-      "role": "staff",
+      "role": "",
+      "isActive": true,
+      "password": "1234",
+      "address": "24354"
+    },
+    {
+      "id": "test1",
+      "password": "1234",
+      "email": "kjd@hf",
+      "gender": "male",
+      "role": "User",
+      "isActive": false
+    },
+    {
+      "id": "test2",
+      "password": "1234",
+      "email": "kjd@hf",
+      "gender": "male",
+      "role": "User",
+      "isActive": true
+    },
+    {
+      "id": "akash",
+      "password": "1234",
+      "email": "akash@gmail.com",
+      "gender": "female",
+      "role": "Manager",
       "isActive": true
     }
   ],

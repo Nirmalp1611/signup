@@ -15,14 +15,18 @@ export class RegisterComponent {
     private service: AuthService,
     private router: Router
   ) {}
+  isLinear = true;
+  currentStep: number = 0;
+  combinedForm = {};
 
-  registerForm = this.builder.group({
+  ngOnChanges() {
+    this.confirmPassword();
+  }
+  firstFormGroup = this.builder.group({
     id: this.builder.control(
       '',
       Validators.compose([Validators.required, Validators.minLength(5)])
     ),
-    name: this.builder.control('', Validators.required),
-    password: this.builder.control(''),
     email: this.builder.control(
       '',
       Validators.compose([Validators.required, Validators.email])
@@ -32,9 +36,28 @@ export class RegisterComponent {
     isActive: this.builder.control(false),
   });
 
+  secondFormGroup = this.builder.group({
+    password: this.builder.control(''),
+  });
+
+  thirdFormGroup = this.builder.group({
+    address: this.builder.control(''),
+  });
+  reEnteredPassword = '';
+  confirmPassword() {
+    return this.secondFormGroup.value.password == this.reEnteredPassword;
+  }
+
   proceedRegister() {
-    if (this.registerForm.valid) {
-      this.service.proceedRegister(this.registerForm.value).subscribe((res) => {
+    this.combinedForm = {
+      ...this.firstFormGroup.value,
+      ...this.secondFormGroup.value,
+      ...this.thirdFormGroup.value,
+    };
+    if (this.firstFormGroup.valid) {
+      console.log(this.combinedForm);
+
+      this.service.proceedRegister(this.combinedForm).subscribe((res) => {
         this.toastr.success(
           'Contact Admin for approval',
           'Registered Successfully'

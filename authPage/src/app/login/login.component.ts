@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
+import { AsyncSubject, ReplaySubject, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -42,5 +43,15 @@ export class LoginComponent {
     } else {
       this.toastr.warning('Please enter vaild data');
     }
+  }
+
+  ngOnInit() {
+    const subject = new Subject<void>(); // Shorthand for Subject<void>
+
+    subject.subscribe({
+      next: () => console.log('One second has passed'),
+    });
+
+    setTimeout(() => subject.next(), 1000);
   }
 }

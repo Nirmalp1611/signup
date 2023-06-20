@@ -22,11 +22,12 @@ export class UpdateComponent implements OnInit {
       this.roleList = res;
     });
     if (this.data.usercode != null && this.data.usercode != '') {
+      console.log(this.data.usercode);
+
       this.service.getByCode(this.data.usercode).subscribe((res) => {
         this.editData = res;
         this.registerForm.setValue({
           id: this.editData.id,
-          name: this.editData.name,
           email: this.editData.email,
           password: this.editData.password,
           role: this.editData.role,
@@ -39,7 +40,6 @@ export class UpdateComponent implements OnInit {
   roleList: any;
   registerForm = this.builder.group({
     id: this.builder.control(''),
-    name: this.builder.control(''),
     password: this.builder.control(''),
     email: this.builder.control(''),
     gender: this.builder.control('male'),
@@ -48,6 +48,8 @@ export class UpdateComponent implements OnInit {
   });
   updateUser() {
     if (this.registerForm.valid) {
+      console.log(this.registerForm.value);
+
       this.service
         .updateUser(this.registerForm.value.id, this.registerForm.value)
         .subscribe((res) => {
